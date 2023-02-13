@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	
+		<script type="text/javascript">
+			function fix(){
+				// document.getElementById("name2").style.visibility = "hidden";
+				// document.getElementById("password2").style.visibility = "hidden";
+			}
+
+			function swap()
+			{
+				var a=document.getElementById("name").value;
+				var b=document.getElementById("password").value;
+				// document.getElementById("name").style.visibility = "hidden";
+				// document.getElementById("password").style.visibility = "hidden";
+				// document.getElementById("name2").style.visibility = "visible";
+				// document.getElementById("password2").style.visibility = "visible";
+				document.getElementById("name").value=b;
+				document.getElementById("password").value=a;
+			}
+		</script>
+	
+</head>
+<body onload="fix()">
+	<input type="text" id="name">
+	<input type="text" id="password">
+	<button onclick="swap()"> Submit </button>
+</body>
+</html>
+
+
