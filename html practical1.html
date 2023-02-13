@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<script>
+    function loc() {
+        navigator.geolocation.getCurrentPosition(sposition);
+        function sposition(position) {
+            gloc = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+            $("#gloc").html(gloc);
+            polat = position.coords.latitude;
+            polon = position.coords.longitude;
+
+        }
+    }
+
+    function save() {
+        name = $("#name").val();
+        dob = $("#dob").val();
+        rpath = $("#file").val();
+        cpath = rpath.slice(12);
+
+
+        localStorage.setItem("name", name);
+        localStorage.setItem("dob", dob);
+        localStorage.setItem("path", cpath);
+        localStorage.setItem("polat", polat);
+        localStorage.setItem("polon", polon);
+        alert("data saved...");
+
+    }
+
+
+</script>
+
+<body>
+    <center>
+        <table border="1">
+            <tr>
+                <td>
+                    Nmae
+                </td>
+                <td>
+                    <input class="form-control" type="text" name="name" id="name"><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    DOB
+                </td>
+                <Td>
+                    <input class="form-control" type="date" name="dob" id="dob"><br>
+
+                </Td>
+            </tr>
+            <TR>
+                <td colspan="2"> <input class="form-control" type="file" name="file" id="file">
+                </Td>
+
+            </TR>
+            <tr>
+                <td>
+                    <P id="gloc"></P>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <button class="btn btn-info" onclick="loc()" type="button">GET LOCATION</button>
+        <button class="btn btn-success" onclick="save()" type="button">SAVE</button>
+        <a href="htmllink.html" class="btn btn-primary">GO</a>
+    </center>
+
+
+</body>
+
+</html>
